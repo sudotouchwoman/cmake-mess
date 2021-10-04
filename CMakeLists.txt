@@ -8,6 +8,16 @@ set(USAGE test-lib)
 
 project(${PROJECT_NAME} VERSION 0.1.0)
 
+add_subdirectory(googletest)
+include_directories(googletest/include)
+
+set(TEST_EXECUTABLE test-driver)
+set(TEST_SOURCE tests/test-lib.cpp)
+
+add_executable(${TEST_EXECUTABLE} ${TEST_SOURCE})
+target_link_libraries(${TEST_EXECUTABLE} PRIVATE gtest)
+target_link_libraries(${TEST_EXECUTABLE} PRIVATE ${USAGE})
+
 include_directories(${CMAKE_CURRENT_LIST_DIR}/${HEADERS})
 
 add_library(${USAGE} STATIC

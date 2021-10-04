@@ -4,3 +4,4 @@
 
 const std::string message_from_src();
 const int multiply(const int, const int);
+const int add(const int, const int);
